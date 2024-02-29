@@ -1,18 +1,19 @@
-// src/components/NavBar.js
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import CartWidget from './CartWidget';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
   return (
     <Navbar bg="secondary" expand="lg">
-      <Navbar.Brand href="/">Mi App</Navbar.Brand>
+      <Navbar.Brand as={Link} to="/">Mi App</Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarNav" />
       <Navbar.Collapse id="navbarNav">
         <Nav className="mr-auto">
-          <Nav.Link href="/">Inicio</Nav.Link>
-          <Nav.Link href="/about">Acerca de</Nav.Link>
-          <Nav.Link href="/contact">Contacto</Nav.Link>
+          <Nav.Link as={Link} to="/">Inicio</Nav.Link>
+          <Nav.Link as={Link} to="/category/electronics">Electrónicos</Nav.Link>
+          <Nav.Link as={Link} to="/category/clothing">Ropa</Nav.Link>
+          {/* Agrega más categorías según tu necesidad */}
         </Nav>
         <CartWidget itemCount={5} /> {/* Número hardcodeado para demostración */}
       </Navbar.Collapse>

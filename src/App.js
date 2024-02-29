@@ -4,7 +4,6 @@ import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Home from './pages/Home';
 import Category from './pages/Category';
-import Item from './pages/Item';
 
 const App = () => {
   return (
@@ -12,7 +11,6 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/category/:categoryId" element={<Category />} />
-        <Route path="/item/:itemId" element={<Item />} />
         <Route path="/items" element={<ItemListContainer />} />
         <Route path="/item/:id" element={<ItemDetailContainer />} />
       </Routes>
@@ -21,5 +19,6 @@ const App = () => {
 };
 
 export default App;
+
 
 

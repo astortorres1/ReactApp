@@ -1,21 +1,24 @@
-import React from 'react';
-import products from '../data/products'; 
-const ItemListContainer = () => {
+import React, { useEffect, useState } from 'react';
+import ItemList from './ItemList'; // Nuevo componente para mapear la data
+import productsApi from '../data/products'; // Archivo con la promesa simulada
+
+const ItemListContainer = ({ categoryId }) => {
+  const [products, setProducts] = useState([]); // Estado para almacenar los productos
+
+  useEffect(() => {
+    // Simulación de carga de productos
+    productsApi.getProducts(categoryId)
+      .then(data => setProducts(data))
+      .catch(error => console.error('Error fetching products:', error));
+  }, [categoryId]); // Ejecuta el efecto cada vez que cambia categoryId
+
   return (
     <div>
       <h2>Lista de Productos</h2>
-      <ul>
-        {products.map(product => (
-          <li key={product.id}>
-            <img src={product.image} alt={product.title} />
-            <p>{product.title}</p>
-            <p>Precio: ${product.price}</p>
-            {/* Otros detalles del producto */}
-          </li>
-        ))}
-      </ul>
+      <ItemList products={products} />
     </div>
   );
 };
 
 export default ItemListContainer;
+

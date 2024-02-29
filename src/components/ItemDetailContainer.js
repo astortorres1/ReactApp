@@ -1,23 +1,17 @@
 import React from 'react';
-import products from '../data/products'; 
+import { useParams } from 'react-router-dom';
+import ItemDetail from './ItemDetail'; // Nuevo componente para la vista del detalle
+import products from '../data/products'; // Ajusta la ruta según tu estructura de carpetas
 
-const ItemDetailContainer = ({ match }) => {
-  
-  if (!match || !match.params) {
-    return <p>No se proporcionaron parámetros de ruta</p>;
-  }
-
-  const productId = parseInt(match.params.id);
+const ItemDetailContainer = () => {
+  const { id } = useParams();
+  const productId = parseInt(id);
   const product = products.find(product => product.id === productId);
 
   return (
     <div>
       {product ? (
-        <div>
-          <h2>{product.title}</h2>
-          <p>{product.description}</p>
-          {/* Otros detalles del producto */}
-        </div>
+        <ItemDetail product={product} />
       ) : (
         <p>Producto no encontrado</p>
       )}
