@@ -13,7 +13,7 @@ const NavBar = () => {
           <Nav.Link as={Link} to="/">Inicio</Nav.Link>
           <Nav.Link as={Link} to="/category/electronics">Electrónicos</Nav.Link>
           <Nav.Link as={Link} to="/category/clothing">Ropa</Nav.Link>
-          {/* Agrega más categorías según tu necesidad */}
+          {/*Para agregar mas categorias */}
         </Nav>
         <CartWidget itemCount={5} /> {/* Número hardcodeado para demostración */}
       </Navbar.Collapse>
