@@ -1,6 +1,5 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
-import CartWidget from './CartWidget';
 import { Link } from 'react-router-dom';
 
 const NavBar = () => {
@@ -13,13 +12,14 @@ const NavBar = () => {
           <Nav.Link as={Link} to="/">Inicio</Nav.Link>
           <Nav.Link as={Link} to="/category/electronics">Electrónicos</Nav.Link>
           <Nav.Link as={Link} to="/category/clothing">Ropa</Nav.Link>
-          {/*Para agregar mas categorias */}
+          {/* Agrega más categorías según tu aplicación */}
         </Nav>
-        <CartWidget itemCount={5} /> {/* Número hardcodeado para demostración */}
       </Navbar.Collapse>
     </Navbar>
   );
 };
 
 export default NavBar;
+
+
 

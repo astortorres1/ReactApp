@@ -1,23 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import ItemDetail from './ItemDetail'; // Nuevo componente para la vista del detalle
-import products from '../data/products';
+import ItemDetail from './ItemDetail';
+import products from '../data/products'; // Ajusta la ruta según tu estructura de carpetas
 
 const ItemDetailContainer = () => {
+  const [product, setProduct] = useState(null);
   const { id } = useParams();
-  const productId = parseInt(id);
-  const product = products.find(product => product.id === productId);
+
+  useEffect(() => {
+    // Simula una llamada asíncrona a la API para obtener el detalle del producto
+    const fetchProduct = () => {
+      const selectedProduct = products.find(p => p.id === parseInt(id));
+      setProduct(selectedProduct);
+    };
+
+    fetchProduct();
+  }, [id]);
 
   return (
-    <div>
-      {product ? (
-        <ItemDetail product={product} />
-      ) : (
-        <p>Producto no encontrado</p>
-      )}
+    <div className="item-detail-container">
+      <ItemDetail product={product} />
     </div>
   );
 };
 
 export default ItemDetailContainer;
+
 

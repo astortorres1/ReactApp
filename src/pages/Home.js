@@ -1,30 +1,27 @@
 import React from 'react';
-import NavBar from '../components/NavBar';
+import ItemListContainer from '../components/ItemListContainer';
+import { Link } from 'react-router-dom';
 import products from '../data/products';
-import '../App.css';
+import "../App.css";
 
 const Home = () => {
+  const handleItemClick = (productId) => {
+    // Puedes hacer algo con el productId si es necesario antes de navegar
+    console.log(`Clic en el producto con ID: ${productId}`);
+  };
+
   return (
-    <div className="home-container">
-      {/* Barra de Navegación */}
-      <NavBar />
-
-      {/* Contenido de la página de inicio */}
-      <h2>Home Page</h2>
-
-      {/* Mostrar productos */}
+    <div>
+      <h1 className='titulo'>Bienvenido a Mi Tienda</h1>
       <div className="product-container">
-        {products.map(product => (
-          <div className="product-card" key={product.id}>
-            <h3 className="product-title">{product.title}</h3>
-            <img
-              src={product.image}
-              alt={product.title}
-              className="product-image"
-            />
-            <p className="product-description">{product.description}</p>
-            <p className="product-price">Price: ${product.price}</p>
-            {/* Otros detalles del producto */}
+        {products.map((product) => (
+          <div key={product.id} className="product-card">
+            <img src={product.image} alt={product.title} className="product-image" />
+            <div className="product-details">
+              <h3 className="product-title">{product.title}</h3>
+              <p className="product-price">Price: ${product.price}</p>
+              <Link to={`/item/${product.id}`}>Ver Detalles</Link>
+            </div>
           </div>
         ))}
       </div>
@@ -33,3 +30,4 @@ const Home = () => {
 };
 
 export default Home;
+
