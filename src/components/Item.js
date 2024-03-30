@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import products from '../data/products'; // Importa tus datos de productos
+import products from '../data/products'; 
 
 const Item = () => {
   const { itemId } = useParams();

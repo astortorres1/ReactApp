@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemDetail from './ItemDetail';
-import products from '../data/products'; // Ajusta la ruta según tu estructura de carpetas
+import products from '../data/products'; 
 
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState(null);
